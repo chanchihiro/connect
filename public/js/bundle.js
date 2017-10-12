@@ -10282,6 +10282,7 @@ newuser.addEventListener('click', function (e) {
 	//新規ユーザーを登録
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 		alert('登録できません(' + error.message + ')');
+		//上記をappendとかに書き換えよう
 	});
 });
 
@@ -10291,7 +10292,37 @@ login.addEventListener('click', function (e) {
 	var email = document.getElementById('email').value;
 	var password = document.getElementById('password').value;
 	// ログインする
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+		alert('ログインできません(' + error.message + ')');
+		//上記をappendとかに書き換えよう
+	});
 });
+
+// ログアウト処置
+logout.addEventListener('click', function () {
+	firebase.auth().signOut();
+});
+
+// 認証状態の確認
+firebase.auth().onAuthStateChanged(function (user) {
+	if (user) {
+		loginDislay();
+	} else {
+		logoutDisplay();
+	}
+});
+
+// ログイン状態の表記関数s
+function loginDislay() {
+	logout.classList.remove('hide');
+	inputarea.classList.add('hide');
+	info.textContent = "ログイン中です！";
+}
+function logoutDisplay() {
+	logout.classList.add('hide');
+	inputarea.classList.remove('hide');
+	info.textContent = "";
+}
 
 },{}],3:[function(require,module,exports){
 'use strict';

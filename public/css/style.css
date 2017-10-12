@@ -158,5 +158,6 @@ body {
       width: 30%; }
       .main #main-header #title_logo img {
         width: 100%; }
-  .main #logout {
-    display: none; }
+
+.hide {
+  display: none; }
