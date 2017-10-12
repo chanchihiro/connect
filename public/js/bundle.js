@@ -10256,529 +10256,59 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 "use strict";
 
-var _jquery = require("jquery");
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyCehyBWYJQ_CDE2SbwK_lGpvWDRsrQ4E8g",
+	authDomain: "connect-2018.firebaseapp.com",
+	databaseURL: "https://connect-2018.firebaseio.com",
+	projectId: "connect-2018",
+	storageBucket: "connect-2018.appspot.com",
+	messagingSenderId: "1095684289814"
+};
+firebase.initializeApp(config);
+
+// DOMを登録
+var inputarea = document.getElementById('login-input-area');
+var newuser = document.getElementById('newuser');
+var login = document.getElementById('login');
+var logout = document.getElementById('logout');
+var info = document.getElementById('info');
+
+// 新規登録の処理
+newuser.addEventListener('click', function (e) {
+	// メールアドレスとパスワードを取得
+	var email = document.getElementById('email').value;
+	var password = document.getElementById('password').value;
+	//新規ユーザーを登録
+	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+		alert('登録できません(' + error.message + ')');
+	});
+});
+
+// ログインの処理
+login.addEventListener('click', function (e) {
+	// メールアドレスとパスワードを取得
+	var email = document.getElementById('email').value;
+	var password = document.getElementById('password').value;
+	// ログインする
+});
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
+
+var _login = require('./components/login.js');
+
+var _login2 = _interopRequireDefault(_login);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // こっからスタート
 (0, _jquery2.default)(document).ready(function () {
 	console.log("動いてるよ");
-
-	//エキシビションの部分
-	(0, _jquery2.default)(".samne1").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono1.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne2").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono2.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne3").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono3.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne4").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono4.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne5").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono5.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne6").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono6.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne7").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono7.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne8").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono8.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne9").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono9.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne10").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono10.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne11").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono11.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne12").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono12.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne13").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono13.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne14").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono14.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne15").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono15.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne16").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono16.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne17").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono17.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne18").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono18.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne19").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono19.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne20").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono20.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne21").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono21.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne22").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono22.JPG"
-		});
-	});
-	(0, _jquery2.default)(".samne23").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/yosomono/yosomono23.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne1").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm1.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne2").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm2.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne3").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm3.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne4").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm4.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne5").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm5.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne6").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm6.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne7").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm7.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne8").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm8.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne9").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm9.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne10").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm10.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne11").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm11.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne12").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm12.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne13").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm13.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne14").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm14.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne15").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm15.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne16").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm16.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne17").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm17.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne18").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm18.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne19").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm19.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne20").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm20.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne21").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm21.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne22").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm22.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne23").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm23.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne24").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm24.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne25").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/cm/cm25.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne26").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka10.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne27").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka11.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne28").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka12.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne29").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka13.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne30").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka14.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne31").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka15.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne32").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka16.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne33").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka17.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne34").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka18.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne35").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka19.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne36").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka20.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne37").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka21.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne38").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka22.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne39").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka23.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne40").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka24.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne41").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka25.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne42").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka26.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne43").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka27.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne44").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka28.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne45").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka1.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne46").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka2.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne47").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka3.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne48").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka4.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne49").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka5.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne50").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka6.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne51").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka7.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne52").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka8.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne53").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka9.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne54").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka10.JPG"
-		});
-	});
-	(0, _jquery2.default)(".cm_samne55").on("click", function () {
-		(0, _jquery2.default)(".new-img").attr({
-			"src": "img/ex/zotoka/zotoka11.JPG"
-		});
-	});
-
-	// エキシビションのスライド
-	(0, _jquery2.default)('.ex-slideshow, .ex-slideshow2').each(function () {
-		var $container = (0, _jquery2.default)(this);
-		var $slideGroup = $container.find('.slideshow-slides');
-		var $slides = $slideGroup.find('.slide');
-		var $nav = $container.find('.slideshow-nav');
-		var $indicator = $container.find('.slideshow-indicator');
-
-		var slideCount = $slides.length;
-		var indicatorHTML = '';
-		var currentIndex = 0;
-		var duration = 500;
-		var interval = 8000;
-		var timer;
-
-		$slides.each(function (i) {
-			(0, _jquery2.default)(this).css({ left: 100 * i + '%' });
-		});
-
-		// 任意のスライドを表示する関数
-		function goToSlide(index) {
-			// スライドグループをターゲットの位置に合わせて移動
-			$slideGroup.animate({ left: -100 * index + '%' }, duration);
-			// 現在のスライドのインデックスを上書き
-			currentIndex = index;
-		}
-
-		// タイマーを開始する関数
-		function startTimer() {
-			// 変数 interval で設定した時間が経過するごとに処理を実行
-			timer = setInterval(function () {
-				// 現在のスライドのインデックスに応じて次に表示するスライドの決定
-				// もし最後のスライドなら最初のスライドへ
-				var nextIndex = (currentIndex + 1) % slideCount;
-				goToSlide(nextIndex);
-			}, interval);
-		}
-
-		// 最初のスライドを表示
-		goToSlide(currentIndex);
-
-		// タイマーをスタート
-		startTimer();
-
-		//サムネを押したら移動
-		(0, _jquery2.default)(".btn1").on("click", function () {
-			$slideGroup.animate({ left: -0 + '%' }, duration);
-			console.log("a");
-		});
-		(0, _jquery2.default)(".btn2").on("click", function () {
-			$slideGroup.animate({ left: -100 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn3").on("click", function () {
-			$slideGroup.animate({ left: -200 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn4").on("click", function () {
-			$slideGroup.animate({ left: -300 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn5").on("click", function () {
-			$slideGroup.animate({ left: -400 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn6").on("click", function () {
-			$slideGroup.animate({ left: -500 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn7").on("click", function () {
-			$slideGroup.animate({ left: -600 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn8").on("click", function () {
-			$slideGroup.animate({ left: -700 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn9").on("click", function () {
-			$slideGroup.animate({ left: -800 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn10").on("click", function () {
-			$slideGroup.animate({ left: -900 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn11").on("click", function () {
-			$slideGroup.animate({ left: -1000 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn12").on("click", function () {
-			$slideGroup.animate({ left: -1100 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn13").on("click", function () {
-			$slideGroup.animate({ left: -1200 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn14").on("click", function () {
-			$slideGroup.animate({ left: -1300 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn15").on("click", function () {
-			$slideGroup.animate({ left: -1400 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn16").on("click", function () {
-			$slideGroup.animate({ left: -1500 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn17").on("click", function () {
-			$slideGroup.animate({ left: -1600 + '%' }, duration);
-		});
-		(0, _jquery2.default)(".btn18").on("click", function () {
-			$slideGroup.animate({ left: -1700 + '%' }, duration);
-		});
-	});
-	(0, _jquery2.default)('a.trigger').click(function () {
-		return false;
-	});
-
-	//ハンバーガーメニュー
-	(0, _jquery2.default)(".trigger").on("click", function () {
-		console.log("aaa");
-		(0, _jquery2.default)(this).toggleClass("active");
-		if ((0, _jquery2.default)(this).hasClass("active")) {
-			(0, _jquery2.default)(".main-nav").fadeIn("800");
-			(0, _jquery2.default)(".main-header").animate({
-				"backgroundColor": "background-color: rgba(255,255,255,0.2)"
-			});
-		} else {
-			(0, _jquery2.default)(".main-nav").fadeOut("800");
-			(0, _jquery2.default)(".main-header").animate({
-				"backgroundColor": "background-color: rgba(255,255,255,0)"
-			});
-		}
-	});
 });
 
-},{"jquery":1}]},{},[2]);
+},{"./components/login.js":2,"jquery":1}]},{},[3]);

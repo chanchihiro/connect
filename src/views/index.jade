@@ -4,3 +4,11 @@ block title
 block body
  .main
   include _header
+  #login-input-area
+   input#email(type="email" placeholder="メールアドレスを入力" required)
+   input#password(type="password" placeholder="パスワードを入力" required)
+   button#login ログイン
+   button#newuser 新規登録
+  button#logout ログアウト
+  p#info
+ include _script
