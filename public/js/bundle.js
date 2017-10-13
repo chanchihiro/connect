@@ -10267,18 +10267,25 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// realtimedatabaseを使えるようにする
+var database = firebase.database();
+
 // DOMを登録
 var inputarea = document.getElementById('login-input-area');
 var newuser = document.getElementById('newuser');
+var username = document.getElementById('username');
 var login = document.getElementById('login');
 var logout = document.getElementById('logout');
 var info = document.getElementById('info');
+//ユーザー名を登録
+var name = '';
 
 // 新規登録の処理
 newuser.addEventListener('click', function (e) {
 	// メールアドレスとパスワードを取得
 	var email = document.getElementById('email').value;
 	var password = document.getElementById('password').value;
+	name = document.getElementById('username').value;
 	//新規ユーザーを登録
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 		alert('登録できません(' + error.message + ')');
@@ -10307,6 +10314,7 @@ logout.addEventListener('click', function () {
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		loginDislay();
+		runUserInfoRegister();
 	} else {
 		logoutDisplay();
 	}
@@ -10323,6 +10331,22 @@ function logoutDisplay() {
 	inputarea.classList.remove('hide');
 	info.textContent = "";
 }
+
+// ユーザー名を登録したい（以下全部）
+
+// ユーザー情報を登録する
+var runUserInfoRegister = function runUserInfoRegister() {
+	//現在ログイン中のユーザーを取得
+	var currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	var userId = currentUser.uid;
+	//RealtimeDatabaseに登録
+	firebase.database().ref('users/' + userId).set({
+		username: name
+	});
+	//登録が終わったのでログアウトをする
+	// runLogout();
+};
 
 },{}],3:[function(require,module,exports){
 'use strict';

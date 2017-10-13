@@ -14,20 +14,30 @@
     <title>connect</title>
   </head>
   <body>
-    <div class="main">
-      <header id="main-header">
+    <div class="connect">
+      <header id="connect_header">
         <div id="title_logo"><img src="img/logo.jpg"></div>
       </header>
-      <div id="login-input-area">
-        <input id="email" type="email" placeholder="メールアドレスを入力" required>
-        <input id="password" type="password" placeholder="パスワードを入力" required>
-        <button id="login">ログイン</button>
-        <button id="newuser">新規登録</button>
+      <div id="connect_sign">
+        <div id="login-input-area">
+          <button id="twitter">twitterでログインする</button>
+          <p id="or">または</p>
+          <input id="email" type="email" placeholder="メールアドレス" required>
+          <input id="username" type="username" placeholder="ユーザーネーム" required>
+          <input id="password" type="password" placeholder="パスワード" required>
+          <button id="login">ログイン</button>
+          <button id="newuser">新規登録</button>
+        </div>
+        <button id="logout" class="hide">ログアウト</button>
+        <p id="haveaccount">アカウントをお持ちですか？
+          <button id="change_login">ログインする</button>
+          <button id="change_user" class="hide">新規登録</button>
+        </p>
+        <p id="info"></p>
       </div>
-      <button id="logout" class="hide">ログアウト</button>
-      <p id="info"></p>
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="js/bundle.js"></script>
   </body>
 </html>

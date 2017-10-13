@@ -13,18 +13,62 @@ body {
 	}
 }
 
-.main {
+.connect {
 	width: 100%;
 	height: 100vh;
 	margin: 0 auto;
 	max-width: 750px;
 	background-color: #fff;
-	#main-header {
+	#connect_header {
 		width: 100%;
 		#title_logo {
 			width: 30%;
 			img {
 				width: 100%;
+			}
+		}
+	}
+	#connect_sign {
+		width: 80%;
+		margin: 30px auto 0px;
+		#login-input-area {
+			button {
+				text-align: center;
+				display: block;
+				box-sizing: border-box; 
+				width: 100%;
+				border: 1px #e6e6e6 solid;
+				border-radius: 3px;
+				padding: 10px 8px;
+				margin-bottom: 4px;
+				cursor: pointer;
+			}
+			#or {
+				text-align: center;
+				display: block;
+				box-sizing: border-box;
+				color: #000;
+				width: 100%;
+				padding: 8px;
+				margin-bottom: 4px;
+			}
+			input {
+				display: block;
+				box-sizing: border-box; 
+				width: 100%;
+				border: 1px #e6e6e6 solid;
+				border-radius: 3px;
+				padding: 8px;
+				margin-bottom: 4px;
+				cursor: pointer;
+			}
+		}
+		#haveaccount {
+			width: 100%;
+			text-align: center;
+			margin-top: 20px;
+			button {
+				color: #68a2ff;
 			}
 		}
 	}

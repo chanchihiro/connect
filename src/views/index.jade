@@ -2,13 +2,20 @@ extends _head
 block title
  title= "connect"
 block body
- .main
+ .connect
   include _header
-  #login-input-area
-   input#email(type="email" placeholder="メールアドレスを入力" required)
-   input#password(type="password" placeholder="パスワードを入力" required)
-   button#login ログイン
-   button#newuser 新規登録
-  button#logout.hide ログアウト
-  p#info
+  #connect_sign
+   #login-input-area
+    button#twitter twitterでログインする
+    p#or または
+    input#email(type="email" placeholder="メールアドレス" required)
+    input#username(type="username" placeholder="ユーザーネーム" required)
+    input#password(type="password" placeholder="パスワード" required)
+    button#login ログイン
+    button#newuser 新規登録
+   button#logout.hide ログアウト
+   p#haveaccount アカウントをお持ちですか？
+    button#change_login ログインする
+    button#change_user.hide 新規登録
+   p#info
  include _script
