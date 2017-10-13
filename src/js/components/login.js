@@ -20,6 +20,8 @@ const username = document.getElementById('username');
 const login = document.getElementById('login');
 const logout = document.getElementById('logout');
 const info = document.getElementById('info');
+const change_login = document.getElementById('change_login');
+const change_user = document.getElementById('change_user');
 //ユーザー名を登録
 let name = ''
 
@@ -59,6 +61,23 @@ logout.addEventListener('click', function() {
 })
 
 
+// 新規登録とログインの切り替え
+change_login.addEventListener('click', function(e) {
+	change_user.classList.remove('hide');
+	change_login.classList.add('hide');
+	username.classList.add('hide');
+	newuser.classList.add('hide');
+	login.classList.remove('hide');
+});
+change_user.addEventListener('click', function(e) {
+	change_user.classList.add('hide');
+	change_login.classList.remove('hide');
+	username.classList.remove('hide');
+	newuser.classList.remove('hide');
+	login.classList.add('hide');
+})
+
+
 // 認証状態の確認
 firebase.auth().onAuthStateChanged(function(user) {
 	if(user) {
@@ -79,7 +98,7 @@ function loginDislay() {
 function logoutDisplay() {
 	logout.classList.add('hide');
 	inputarea.classList.remove('hide');
-	info.textContent = "ログインしましょう";
+	info.textContent = "";
 }
 
 
