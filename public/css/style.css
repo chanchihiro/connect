@@ -205,5 +205,12 @@ body {
       .connect #connect_sign #haveaccount button {
         color: #68a2ff; }
 
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 8px; }
+  footer p {
+    text-align: center; }
+
 .hide {
   display: none; }
