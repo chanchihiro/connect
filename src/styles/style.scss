@@ -21,17 +21,29 @@ body {
 	background-color: #fff;
 	#connect_header {
 		width: 100%;
+		overflow: hidden;
+		position: relative;
 		#title_logo {
 			width: 30%;
+			float: left;
 			img {
 				width: 100%;
 			}
+		}
+		#info {
+			display: inline-block;
+			float: right;
+			margin-right: 16px;
+			line-height: 62px;
 		}
 	}
 	#connect_sign {
 		width: 80%;
 		margin: 30px auto 0px;
 		#login-input-area {
+			.hide {
+				display: none;
+			}
 			button {
 				text-align: center;
 				display: block;

@@ -10324,12 +10324,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 function loginDislay() {
 	logout.classList.remove('hide');
 	inputarea.classList.add('hide');
-	info.textContent = "ログイン中です！";
+	info.textContent = "ログイン中です";
 }
 function logoutDisplay() {
 	logout.classList.add('hide');
 	inputarea.classList.remove('hide');
-	info.textContent = "";
+	info.textContent = "ログインしましょう";
 }
 
 // ユーザー名を登録したい（以下全部）

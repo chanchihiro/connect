@@ -153,14 +153,24 @@ body {
   max-width: 750px;
   background-color: #fff; }
   .connect #connect_header {
-    width: 100%; }
+    width: 100%;
+    overflow: hidden;
+    position: relative; }
     .connect #connect_header #title_logo {
-      width: 30%; }
+      width: 30%;
+      float: left; }
       .connect #connect_header #title_logo img {
         width: 100%; }
+    .connect #connect_header #info {
+      display: inline-block;
+      float: right;
+      margin-right: 16px;
+      line-height: 62px; }
   .connect #connect_sign {
     width: 80%;
     margin: 30px auto 0px; }
+    .connect #connect_sign #login-input-area .hide {
+      display: none; }
     .connect #connect_sign #login-input-area button {
       text-align: center;
       display: block;
