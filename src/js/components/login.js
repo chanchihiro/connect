@@ -83,8 +83,11 @@ change_user.addEventListener('click', function(e) {
 // 認証状態の確認
 firebase.auth().onAuthStateChanged(function(user) {
 	if(user) {
+		console.log(user);
 		loginDislay();
-		runUserInfoRegister();
+		if(user.displayName === null) {
+			runUserInfoRegister();
+		}
 	}else{
 		logoutDisplay();
 	}
@@ -93,16 +96,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // ユーザー情報を登録する
 let runUserInfoRegister = function() {
-	//現在ログイン中のユーザーを取得
-	currentUser = firebase.auth().currentUser;
-	//現在ログインしているユーザーIDを取得
-	userId = currentUser.uid;
-	//RealtimeDatabaseに登録
-	firebase.database().ref('users/' + userId).set({
-		username : name
-	});
-	//登録が終わったのでログアウトをする
-	// runLogout();
+	console.log(name);
+	let user = firebase.auth().currentUser;
+	user.updateProfile({
+        displayName: name
+    });
 }
 
 
@@ -113,14 +111,9 @@ function loginDislay() {
 	haveaccount.classList.add('hide');
 	currentUser = firebase.auth().currentUser;
 	userId = currentUser.uid;
-	console.log(userId);
 	// databaseから取得して名前を右上に表示する
-	let usernameRef = firebase.database().ref('users/' + userId);
-	usernameRef.once('value').then(function(snapshot) {
-		let usera = snapshot.child("username").val();
-		console.log(usera);
-		info.textContent = usera ;
-	});
+	let user = firebase.auth().currentUser;
+	info.textContent = user.displayName ;
 }
 function logoutDisplay() {
 	logout.classList.add('hide');

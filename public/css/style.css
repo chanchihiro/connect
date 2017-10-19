@@ -204,8 +204,6 @@ body {
       margin-top: 20px; }
       .connect #connect_sign #haveaccount button {
         color: #68a2ff; }
-    .connect #connect_sign .hide {
-      display: none; }
     .connect #connect_sign #logout {
       display: block;
       width: 80%;
@@ -215,6 +213,8 @@ body {
       border-radius: 3px;
       padding: 10px 8px;
       cursor: pointer; }
+    .connect #connect_sign .hide {
+      display: none !important; }
 
 footer {
   position: absolute;
