@@ -10280,6 +10280,7 @@ var info = document.getElementById('info');
 var change_login = document.getElementById('change_login');
 var change_user = document.getElementById('change_user');
 var haveaccount = document.getElementById('haveaccount');
+var connect_content = document.getElementById('connect_content');
 var currentUser = void 0; //ログイン中ユーザーの認証に使う
 var userId = void 0;
 var name = void 0;
@@ -10334,10 +10335,10 @@ change_user.addEventListener('click', function (e) {
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		console.log(user);
-		loginDislay();
 		if (user.displayName === null) {
 			runUserInfoRegister();
 		}
+		loginDislay();
 	} else {
 		logoutDisplay();
 	}
@@ -10357,6 +10358,7 @@ function loginDislay() {
 	logout.classList.remove('hide');
 	inputarea.classList.add('hide');
 	haveaccount.classList.add('hide');
+	connect_content.classList.remove('hide');
 	currentUser = firebase.auth().currentUser;
 	userId = currentUser.uid;
 	// databaseから取得して名前を右上に表示する
@@ -10366,6 +10368,7 @@ function loginDislay() {
 function logoutDisplay() {
 	logout.classList.add('hide');
 	inputarea.classList.remove('hide');
+	connect_content.classList.add('hide');
 	info.textContent = "";
 }
 

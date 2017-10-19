@@ -204,17 +204,62 @@ body {
       margin-top: 20px; }
       .connect #connect_sign #haveaccount button {
         color: #68a2ff; }
-    .connect #connect_sign #logout {
-      display: block;
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-      border: 1px #e6e6e6 solid;
-      border-radius: 3px;
-      padding: 10px 8px;
-      cursor: pointer; }
     .connect #connect_sign .hide {
       display: none !important; }
+  .connect #connect_content {
+    width: 80%;
+    margin: 30px auto 0px; }
+    .connect #connect_content #connect_content_btns button {
+      box-sizing: border-box;
+      width: 100%;
+      border: 1px #e6e6e6 solid;
+      border-radius: 3px;
+      padding: 8px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      color: #fff; }
+    .connect #connect_content #connect_content_btns #btn_iraira {
+      background-color: #f4426b;
+      border: 1px #f4426b solid; }
+    .connect #connect_content #connect_content_btns #btn_nadenade {
+      background-color: #41b8f4;
+      border: 1px #41b8f4 solid; }
+    .connect #connect_content #connect_content_display {
+      width: 100%;
+      text-align: center;
+      margin-top: 10%; }
+      .connect #connect_content #connect_content_display #chara {
+        overflow: hidden;
+        text-align: center; }
+      .connect #connect_content #connect_content_display #display {
+        width: 100%;
+        overflow: hidden;
+        font-size: 16px; }
+        .connect #connect_content #connect_content_display #display #display_iraira {
+          width: 50%;
+          float: left; }
+          .connect #connect_content #connect_content_display #display #display_iraira p {
+            margin-bottom: 4px; }
+        .connect #connect_content #connect_content_display #display #display_nadenade {
+          width: 50%;
+          float: left; }
+          .connect #connect_content #connect_content_display #display #display_nadenade p {
+            margin-bottom: 4px; }
+  .connect #logout {
+    display: block;
+    position: absolute;
+    bottom: 6%;
+    right: 0;
+    left: 0;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px #e6e6e6 solid;
+    border-radius: 3px;
+    padding: 10px 8px;
+    cursor: pointer; }
+  .connect .hide {
+    display: none !important; }
 
 footer {
   position: absolute;

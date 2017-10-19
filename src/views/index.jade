@@ -17,6 +17,20 @@ block body
     button#change_login ログインする
     button#change_user.hide 新規登録
    p#info
-   button#logout.hide ログアウト
+  #connect_content.hide
+   #connect_content_btns
+    button#btn_iraira イライラ
+    button#btn_nadenade なでなで
+   #connect_content_display
+    #chara
+     img(src="img/chara.png")
+    #display
+     #display_iraira
+      p イライラメーター
+      p 10
+     #display_nadenade
+      p 気分がいいぞ
+      p 18
+  button#logout.hide ログアウト
  include _footer
  include _script

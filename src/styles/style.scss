@@ -66,7 +66,7 @@ body {
 			}
 			input {
 				display: block;
-				box-sizing: border-box; 
+				box-sizing: border-box;
 				width: 100%;
 				border: 1px #e6e6e6 solid;
 				border-radius: 3px;
@@ -83,19 +83,78 @@ body {
 				color: #68a2ff;
 			}
 		}
-		#logout {
-			display: block;
-			width: 80%;
-			margin: 0 auto;
-			text-align: center;
-			border: 1px #e6e6e6 solid;
-			border-radius: 3px;
-			padding: 10px 8px;
-			cursor: pointer;
-		}
 		.hide {
 			display: none !important;
 		}
+	}
+	#connect_content {
+		width: 80%;
+		margin: 30px auto 0px;
+		#connect_content_btns {
+			button {
+				box-sizing: border-box;
+				width: 100%;
+				border: 1px #e6e6e6 solid;
+				border-radius: 3px;
+				padding: 8px;
+				margin-bottom: 4px;
+				cursor: pointer;
+				color: #fff;
+			}
+			#btn_iraira {
+				background-color: #f4426b;
+				border: 1px #f4426b solid;
+			}
+			#btn_nadenade {
+				background-color: #41b8f4;
+				border: 1px #41b8f4 solid;
+			}
+		}
+		#connect_content_display {
+			width: 100%;
+			text-align: center;
+			margin-top: 10%;
+			#chara {
+				overflow: hidden;
+				text-align: center;
+			}
+			#display {
+				width: 100%;
+				overflow: hidden;
+				font-size: 16px;
+				#display_iraira {
+					width: 50%;
+					float: left;
+					p {
+						margin-bottom: 4px;
+					}
+				}
+				#display_nadenade {
+					width: 50%;
+					float: left;
+					p {
+						margin-bottom: 4px;
+					}
+				}
+			}
+		}
+	}
+	#logout {
+		display: block;
+		position: absolute;
+		bottom: 6%;
+		right: 0;
+		left: 0;
+		width: 80%;
+		margin: 0 auto;
+		text-align: center;
+		border: 1px #e6e6e6 solid;
+		border-radius: 3px;
+		padding: 10px 8px;
+		cursor: pointer;
+	}
+	.hide {
+		display: none !important;
 	}
 }
 
@@ -111,3 +170,10 @@ footer {
 .hide {
 	display: none;
 }
+
+
+
+
+
+
+
