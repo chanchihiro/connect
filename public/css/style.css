@@ -204,6 +204,17 @@ body {
       margin-top: 20px; }
       .connect #connect_sign #haveaccount button {
         color: #68a2ff; }
+    .connect #connect_sign .hide {
+      display: none; }
+    .connect #connect_sign #logout {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px #e6e6e6 solid;
+      border-radius: 3px;
+      padding: 10px 8px;
+      cursor: pointer; }
 
 footer {
   position: absolute;

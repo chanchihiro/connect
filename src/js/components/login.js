@@ -22,8 +22,10 @@ const logout = document.getElementById('logout');
 const info = document.getElementById('info');
 const change_login = document.getElementById('change_login');
 const change_user = document.getElementById('change_user');
-//ユーザー名を登録
-let name = ''
+const haveaccount = document.getElementById('haveaccount');
+let currentUser; //ログイン中ユーザーの認証に使う
+let userId;
+let name;
 
 
 // 新規登録の処理
@@ -89,28 +91,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-// ログイン状態の表記関数s
-function loginDislay() {
-	logout.classList.remove('hide');
-	inputarea.classList.add('hide');
-	info.textContent = "ログイン中です";
-}
-function logoutDisplay() {
-	logout.classList.add('hide');
-	inputarea.classList.remove('hide');
-	info.textContent = "";
-}
-
-
-
-// ユーザー名を登録したい（以下全部）
-
 // ユーザー情報を登録する
 let runUserInfoRegister = function() {
 	//現在ログイン中のユーザーを取得
-	let currentUser = firebase.auth().currentUser;
+	currentUser = firebase.auth().currentUser;
 	//現在ログインしているユーザーIDを取得
-	let userId = currentUser.uid;
+	userId = currentUser.uid;
 	//RealtimeDatabaseに登録
 	firebase.database().ref('users/' + userId).set({
 		username : name
@@ -118,6 +104,30 @@ let runUserInfoRegister = function() {
 	//登録が終わったのでログアウトをする
 	// runLogout();
 }
+
+
+// ログイン状態の表記関数s
+function loginDislay() {
+	logout.classList.remove('hide');
+	inputarea.classList.add('hide');
+	haveaccount.classList.add('hide');
+	currentUser = firebase.auth().currentUser;
+	userId = currentUser.uid;
+	console.log(userId);
+	// databaseから取得して名前を右上に表示する
+	let usernameRef = firebase.database().ref('users/' + userId);
+	usernameRef.once('value').then(function(snapshot) {
+		let usera = snapshot.child("username").val();
+		console.log(usera);
+		info.textContent = usera ;
+	});
+}
+function logoutDisplay() {
+	logout.classList.add('hide');
+	inputarea.classList.remove('hide');
+	info.textContent = "";
+}
+
 
 
 

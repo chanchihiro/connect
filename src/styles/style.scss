@@ -83,6 +83,19 @@ body {
 				color: #68a2ff;
 			}
 		}
+		.hide {
+			display: none;
+		}
+		#logout {
+			display: block;
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
+			border: 1px #e6e6e6 solid;
+			border-radius: 3px;
+			padding: 10px 8px;
+			cursor: pointer;
+		}
 	}
 }
 

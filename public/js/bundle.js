@@ -10279,8 +10279,10 @@ var logout = document.getElementById('logout');
 var info = document.getElementById('info');
 var change_login = document.getElementById('change_login');
 var change_user = document.getElementById('change_user');
-//ユーザー名を登録
-var name = '';
+var haveaccount = document.getElementById('haveaccount');
+var currentUser = void 0; //ログイン中ユーザーの認証に使う
+var userId = void 0;
+var name = void 0;
 
 // 新規登録の処理
 newuser.addEventListener('click', function (e) {
@@ -10338,26 +10340,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 	}
 });
 
-// ログイン状態の表記関数s
-function loginDislay() {
-	logout.classList.remove('hide');
-	inputarea.classList.add('hide');
-	info.textContent = "ログイン中です";
-}
-function logoutDisplay() {
-	logout.classList.add('hide');
-	inputarea.classList.remove('hide');
-	info.textContent = "";
-}
-
-// ユーザー名を登録したい（以下全部）
-
 // ユーザー情報を登録する
 var runUserInfoRegister = function runUserInfoRegister() {
 	//現在ログイン中のユーザーを取得
-	var currentUser = firebase.auth().currentUser;
+	currentUser = firebase.auth().currentUser;
 	//現在ログインしているユーザーIDを取得
-	var userId = currentUser.uid;
+	userId = currentUser.uid;
 	//RealtimeDatabaseに登録
 	firebase.database().ref('users/' + userId).set({
 		username: name
@@ -10365,6 +10353,28 @@ var runUserInfoRegister = function runUserInfoRegister() {
 	//登録が終わったのでログアウトをする
 	// runLogout();
 };
+
+// ログイン状態の表記関数s
+function loginDislay() {
+	logout.classList.remove('hide');
+	inputarea.classList.add('hide');
+	haveaccount.classList.add('hide');
+	currentUser = firebase.auth().currentUser;
+	userId = currentUser.uid;
+	console.log(userId);
+	// databaseから取得して名前を右上に表示する
+	var usernameRef = firebase.database().ref('users/' + userId);
+	usernameRef.once('value').then(function (snapshot) {
+		var usera = snapshot.child("username").val();
+		console.log(usera);
+		info.textContent = usera;
+	});
+}
+function logoutDisplay() {
+	logout.classList.add('hide');
+	inputarea.classList.remove('hide');
+	info.textContent = "";
+}
 
 },{}],3:[function(require,module,exports){
 'use strict';
