@@ -1,3 +1,4 @@
+console.log("login動いてるよ")
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyCehyBWYJQ_CDE2SbwK_lGpvWDRsrQ4E8g",
@@ -87,8 +88,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 		console.log(user);
 		if(user.displayName === null) {
 			runUserInfoRegister();
+			createCounts();
 		}
 		loginDislay();
+		disp_iraira();
+		disp_nadenade();
 	}else{
 		logoutDisplay();
 	}
@@ -102,6 +106,19 @@ let runUserInfoRegister = function() {
 	user.updateProfile({
         displayName: name
     });
+}
+
+//databaseにイライラカウントの雛が他を作成する
+let createCounts = function() {
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//RealtimeDatabaseに登録
+	firebase.database().ref('users/' + userId).set({
+		iraira_number: 0,
+		nadenade_number: 0
+	});
 }
 
 
@@ -124,6 +141,49 @@ function logoutDisplay() {
 	info.textContent = "";
 }
 
+// import character_action from './character_action.js';
+// この下のファイルを実は分離したい...
+
+console.log("character_action動いてるよ");
+
+// DOMを登録
+const btn_iraira = document.getElementById('btn_iraira');
+const btn_nadenade = document.getElementById('btn_nadenade');
+const iraira_count = document.getElementById('iraira_count');
+const nadenade_count = document.getElementById('nadenade_count');
+let iraira_num;
+let nadenade_num;
+
+//イライラカウントを表示する
+function disp_iraira() {
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//イライラを表示
+	let iraira_countRef = firebase.database().ref('users/' + userId);
+	iraira_countRef.on('value', function(snapshot) {
+		iraira_count.textContent = snapshot.child('iraira_number').val();
+	});
+}
+
+// なでなでカウントを表示する
+function disp_nadenade() {
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//なでなでを表示
+	let nadenade_countRef = firebase.database().ref('users/' + userId);
+	nadenade_countRef.on('value', function(snapshot) {
+		nadenade_count.textContent = snapshot.child('nadenade_number').val();
+	});
+}
+
+//イライラを押したらイライラデータが更新される
+btn_iraira.addEventListener('click', function(e) {
+	// データベースから数字を持ってくる
+});
 
 
 
