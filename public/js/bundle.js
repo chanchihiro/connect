@@ -131,6 +131,7 @@ function logoutDisplay() {
 	logout.classList.add('hide');
 	inputarea.classList.remove('hide');
 	connect_content.classList.add('hide');
+	haveaccount.classList.remove('hide');
 	info.textContent = "";
 }
 
@@ -176,6 +177,43 @@ function disp_nadenade() {
 //イライラを押したらイライラデータが更新される
 btn_iraira.addEventListener('click', function (e) {
 	// データベースから数字を持ってくる
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//イライラとなでなでをとる
+	var iraira_countRef = firebase.database().ref('users/' + userId);
+	iraira_countRef.on('value', function (snapshot) {
+		iraira_num = snapshot.child('iraira_number').val();
+		nadenade_num = snapshot.child('nadenade_number').val();
+	});
+	iraira_num = iraira_num + 1;
+	nadenade_num = nadenade_num;
+	iraira_countRef.set({
+		iraira_number: iraira_num,
+		nadenade_number: nadenade_num
+	});
+});
+
+//なでなでを押したらイライラデータが更新される
+btn_nadenade.addEventListener('click', function (e) {
+	// データベースから数字を持ってくる
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//なでなでとイライラをとる
+	var iraira_countRef = firebase.database().ref('users/' + userId);
+	iraira_countRef.on('value', function (snapshot) {
+		iraira_num = snapshot.child('iraira_number').val();
+		nadenade_num = snapshot.child('nadenade_number').val();
+	});
+	iraira_num = iraira_num;
+	nadenade_num = nadenade_num + 1;
+	iraira_countRef.set({
+		iraira_number: iraira_num,
+		nadenade_number: nadenade_num
+	});
 });
 
 },{}],2:[function(require,module,exports){

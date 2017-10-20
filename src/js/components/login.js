@@ -108,6 +108,7 @@ let runUserInfoRegister = function() {
     });
 }
 
+
 //databaseにイライラカウントの雛が他を作成する
 let createCounts = function() {
 	//現在ログイン中のユーザーを取得
@@ -138,8 +139,12 @@ function logoutDisplay() {
 	logout.classList.add('hide');
 	inputarea.classList.remove('hide');
 	connect_content.classList.add('hide');
+	haveaccount.classList.remove('hide');
 	info.textContent = "";
 }
+
+
+
 
 // import character_action from './character_action.js';
 // この下のファイルを実は分離したい...
@@ -154,6 +159,7 @@ const nadenade_count = document.getElementById('nadenade_count');
 let iraira_num;
 let nadenade_num;
 
+
 //イライラカウントを表示する
 function disp_iraira() {
 	//現在ログイン中のユーザーを取得
@@ -166,6 +172,7 @@ function disp_iraira() {
 		iraira_count.textContent = snapshot.child('iraira_number').val();
 	});
 }
+
 
 // なでなでカウントを表示する
 function disp_nadenade() {
@@ -180,9 +187,48 @@ function disp_nadenade() {
 	});
 }
 
+
 //イライラを押したらイライラデータが更新される
 btn_iraira.addEventListener('click', function(e) {
 	// データベースから数字を持ってくる
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//イライラとなでなでをとる
+	let iraira_countRef = firebase.database().ref('users/' + userId);
+	iraira_countRef.on('value', function(snapshot) {
+		iraira_num = snapshot.child('iraira_number').val();
+		nadenade_num = snapshot.child('nadenade_number').val();
+	});
+	iraira_num = iraira_num + 1;
+	nadenade_num = nadenade_num;
+	iraira_countRef.set({
+		iraira_number: iraira_num,
+		nadenade_number: nadenade_num
+	});
+});
+
+
+//なでなでを押したらイライラデータが更新される
+btn_nadenade.addEventListener('click', function(e) {
+	// データベースから数字を持ってくる
+	//現在ログイン中のユーザーを取得
+	currentUser = firebase.auth().currentUser;
+	//現在ログインしているユーザーIDを取得
+	userId = currentUser.uid;
+	//なでなでとイライラをとる
+	let iraira_countRef = firebase.database().ref('users/' + userId);
+	iraira_countRef.on('value', function(snapshot) {
+		iraira_num = snapshot.child('iraira_number').val();
+		nadenade_num = snapshot.child('nadenade_number').val();
+	});
+	iraira_num = iraira_num;
+	nadenade_num = nadenade_num + 1;
+	iraira_countRef.set({
+		iraira_number: iraira_num,
+		nadenade_number: nadenade_num
+	});
 });
 
 
