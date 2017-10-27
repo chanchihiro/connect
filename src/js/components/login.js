@@ -25,6 +25,7 @@ const change_login = document.getElementById('change_login');
 const change_user = document.getElementById('change_user');
 const haveaccount = document.getElementById('haveaccount');
 const connect_content = document.getElementById('connect_content');
+const chara_img = document.getElementById('chara_img');
 let currentUser; //ログイン中ユーザーの認証に使う
 let userId;
 let name;
@@ -169,7 +170,10 @@ function disp_iraira() {
 	//イライラを表示
 	let iraira_countRef = firebase.database().ref('users/' + userId);
 	iraira_countRef.on('value', function(snapshot) {
-		iraira_count.textContent = snapshot.child('iraira_number').val();
+		let ira_num = snapshot.child('iraira_number').val();
+		iraira_count.textContent = ira_num;
+		console.log(ira_num);
+		chara_replace(ira_num);
 	});
 }
 
@@ -183,12 +187,14 @@ function disp_nadenade() {
 	//なでなでを表示
 	let nadenade_countRef = firebase.database().ref('users/' + userId);
 	nadenade_countRef.on('value', function(snapshot) {
-		nadenade_count.textContent = snapshot.child('nadenade_number').val();
+		let nade_num = snapshot.child('nadenade_number').val();
+		nadenade_count.textContent = nade_num;
+		console.log(nade_num);
 	});
 }
 
 
-//イライラを押したらイライラデータが更新される
+//イライラを押したらイライラデータが更新されて、一定数を超えるとキャラの表示が変わる
 btn_iraira.addEventListener('click', function(e) {
 	// データベースから数字を持ってくる
 	//現在ログイン中のユーザーを取得
@@ -208,6 +214,17 @@ btn_iraira.addEventListener('click', function(e) {
 		nadenade_number: nadenade_num
 	});
 });
+
+// 数字でキャラの表示を変える
+function chara_replace(ira_num) {
+	if(ira_num % 2 == 0) {
+		chara_img.setAttribute('src', 'img/chara.png');
+		console.log("ちゃら！");
+	}else{
+		chara_img.setAttribute('src', 'img/chara2.png');
+		console.log("ちゃら2！");
+	}
+}
 
 
 //なでなでを押したらイライラデータが更新される
