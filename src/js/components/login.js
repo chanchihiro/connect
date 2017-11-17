@@ -110,13 +110,14 @@ let runUserInfoRegister = function() {
 }
 
 
-//databaseにイライラカウントの雛が他を作成する
+//databaseにイライラカウントの雛形を作成する
 let createCounts = function() {
 	//現在ログイン中のユーザーを取得
 	currentUser = firebase.auth().currentUser;
 	//現在ログインしているユーザーIDを取得
 	userId = currentUser.uid;
 	//RealtimeDatabaseに登録
+	// 最初から0にしないと最初の表示が出なくなっちゃうから
 	firebase.database().ref('users/' + userId).set({
 		iraira_number: 0,
 		nadenade_number: 0
@@ -216,8 +217,8 @@ btn_iraira.addEventListener('click', function(e) {
 });
 
 // 数字でキャラの表示を変える
-function chara_replace(ira_num) {
-	if(ira_num % 2 == 0) {
+function chara_replace(i) {
+	if(i % 2 == 0) {
 		chara_img.setAttribute('src', 'img/chara.png');
 		console.log("ちゃら！");
 	}else{
@@ -247,6 +248,5 @@ btn_nadenade.addEventListener('click', function(e) {
 		nadenade_number: nadenade_num
 	});
 });
-
 
 

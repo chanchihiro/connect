@@ -202,8 +202,8 @@ btn_iraira.addEventListener('click', function (e) {
 });
 
 // 数字でキャラの表示を変える
-function chara_replace(ira_num) {
-	if (ira_num % 2 == 0) {
+function chara_replace(i) {
+	if (i % 2 == 0) {
 		chara_img.setAttribute('src', 'img/chara.png');
 		console.log("ちゃら！");
 	} else {
