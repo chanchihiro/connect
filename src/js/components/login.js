@@ -1,12 +1,7 @@
 console.log("login動いてるよ")
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyCehyBWYJQ_CDE2SbwK_lGpvWDRsrQ4E8g",
-  authDomain: "connect-2018.firebaseapp.com",
-  databaseURL: "https://connect-2018.firebaseio.com",
-  projectId: "connect-2018",
-  storageBucket: "connect-2018.appspot.com",
-  messagingSenderId: "1095684289814"
+
 };
 firebase.initializeApp(config);
 
@@ -228,7 +223,7 @@ function chara_replace(i) {
 }
 
 
-//なでなでを押したらイライラデータが更新される
+//なでなでを押したらなでなでデータが更新される
 btn_nadenade.addEventListener('click', function(e) {
 	// データベースから数字を持ってくる
 	//現在ログイン中のユーザーを取得
